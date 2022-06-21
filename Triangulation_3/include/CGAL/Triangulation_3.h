@@ -3889,7 +3889,7 @@ insert(const Point& p, Locate_type lt, Cell_handle c, int li, int lj)
       return insert_outside_affine_hull(p);
   }
 }
-
+#pragma managed(push, off)
 template < class GT, class Tds, class Lds >
 template < class Conflict_tester, class Hidden_points_visitor >
 typename Triangulation_3<GT,Tds,Lds>::Vertex_handle
@@ -4082,7 +4082,7 @@ insert_in_conflict(const Point& p,
     }
   }
 }
-
+#pragma managed(pop)
 template < class GT, class Tds, class Lds >
 typename Triangulation_3<GT,Tds,Lds>::Vertex_handle
 Triangulation_3<GT,Tds,Lds>::

@@ -20,7 +20,7 @@ namespace CGAL {
 
 // The function constant<T, int i>() returns a const reference to T(i).
 // TODO : is it worth documenting ?
-
+#pragma managed(push, off)
 template < typename T, int i >
 inline
 const T&
@@ -29,7 +29,7 @@ constant()
   CGAL_STATIC_THREAD_LOCAL_VARIABLE(T, t,i);
   return t;
 }
-
+#pragma managed(pop)
 } //namespace CGAL
 
 #endif // CGAL_CONSTANT_H

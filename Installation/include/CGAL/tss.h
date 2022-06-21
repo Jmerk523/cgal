@@ -12,7 +12,27 @@
 
 #include <CGAL/config.h>
 
-#if defined( CGAL_HAS_THREADS )
+#if defined( CGAL_CPP_CLI_THREADS )
+
+#include "ThreadLocal.h"
+
+#  define CGAL_STATIC_THREAD_LOCAL_VARIABLE_0(TYPE, VAR)       \
+  static ThreadLocal<TYPE> tl ## VAR; \
+  static auto VAR = tl ## VAR.GetValue()
+
+#  define CGAL_STATIC_THREAD_LOCAL_VARIABLE(TYPE, VAR, ARG1)       \
+  static ThreadLocal<TYPE> VAR(ARG1)
+
+#  define CGAL_STATIC_THREAD_LOCAL_VARIABLE_2(TYPE, VAR, ARG1, ARG2)       \
+  static ThreadLocal<TYPE> VAR(ARG1,ARG2)
+
+#  define CGAL_STATIC_THREAD_LOCAL_VARIABLE_3(TYPE, VAR, ARG1, ARG2, ARG3) \
+  static ThreadLocal<TYPE> VAR(ARG1,ARG2,ARG3)
+
+#  define CGAL_STATIC_THREAD_LOCAL_VARIABLE_4(TYPE, VAR, ARG1, ARG2, ARG3, ARG4) \
+  static ThreadLocal<TYPE> VAR(ARG1,ARG2,ARG3,ARG4)
+
+#elif defined( CGAL_HAS_THREADS )
 
 #  define CGAL_STATIC_THREAD_LOCAL_VARIABLE_0(TYPE, VAR)       \
   static thread_local TYPE VAR

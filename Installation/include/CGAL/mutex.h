@@ -13,8 +13,17 @@
 #include <CGAL/config.h>
 
 #ifdef CGAL_HAS_THREADS
-#include <mutex>
-#define CGAL_MUTEX std::mutex
-#define CGAL_SCOPED_LOCK(M) std::unique_lock<std::mutex> scoped_lock(M)
+//#include <mutex>
+//#define CGAL_MUTEX std::mutex
+//#define CGAL_SCOPED_LOCK(M) std::unique_lock<std::mutex> scoped_lock(M)
+
+//#define CGAL_MUTEX lock;
+//#define CGAL_SCOPED_LOCK(M) M = lock(this)
+
+#include <Mutex.h>
+
+#define CGAL_MUTEX std::recursive_mutex
+#define CGAL_SCOPED_LOCK(M) std::unique_lock<std::recursive_mutex> scoped_lock(M)
+
 #endif
 #endif // CGAL_MUTEX_H

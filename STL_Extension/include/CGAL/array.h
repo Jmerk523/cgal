@@ -66,14 +66,14 @@ struct Construct_array
     return make_array (t, args...);
   }
 };
-
+#pragma managed(push, off)
 template <std::size_t...Is, typename T>
 constexpr std::array<T, sizeof...(Is)>
 make_filled_array_aux(const T& value, std::index_sequence<Is...>)
 {
   return {(static_cast<void>(Is), value)...};
 }
-
+#pragma managed(pop)
 template <std::size_t N, typename T>
 constexpr std::array<T, N> make_filled_array(const T& value)
 {

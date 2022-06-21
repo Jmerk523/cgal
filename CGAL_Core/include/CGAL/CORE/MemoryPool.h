@@ -78,7 +78,8 @@ public:
   // Access the corresponding static global allocator.
   static MemoryPool<T,nObjects>& global_allocator() {
 #if defined(CGAL_HAS_THREADS) // use the C++11 implementation
-    static thread_local Self memPool;
+    CGAL_STATIC_THREAD_LOCAL_VARIABLE_0(Self, memPool);
+    //static thread_local Self memPool;
 #else // not CGAL_HAS_THREADS
     static Self memPool;
 #endif // not CGAL_HAS_THREADS

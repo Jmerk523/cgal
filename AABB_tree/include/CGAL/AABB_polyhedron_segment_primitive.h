@@ -22,8 +22,6 @@
 
 #include <CGAL/disable_warnings.h>
 
-#define CGAL_DEPRECATED_HEADER "<CGAL/AABB_polyhedron_segment_primitive.h>"
-#define CGAL_REPLACEMENT_HEADER "<CGAL/AABB_halfedge_graph_segment_primitive.h>"
 #include <CGAL/Installation/internal/deprecation_warning.h>
 
 #include <boost/utility/enable_if.hpp>

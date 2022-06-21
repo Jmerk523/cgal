@@ -395,7 +395,7 @@ do_intersect_bbox_or_iso_cuboid_impl(const std::array< std::array<FT, 3>, 3>& tr
 
   return ind_or_true;
 }
-
+#pragma managed(push, off)
 template <class K, class Box3>
 bool do_intersect_bbox_or_iso_cuboid(const typename K::Triangle_3& a_triangle,
                                      const Box3& a_bbox,
@@ -426,7 +426,7 @@ bool do_intersect_bbox_or_iso_cuboid(const typename K::Triangle_3& a_triangle,
   // exception will be thrown in case the output is indeterminate
   return do_intersect_bbox_or_iso_cuboid_impl<FT>(triangle, a_bbox, do_axis_intersect_aux_impl);
 }
-
+#pragma managed(pop)
 template <class K>
 bool do_intersect(const typename K::Triangle_3& triangle,
                   const CGAL::Bbox_3& bbox,
