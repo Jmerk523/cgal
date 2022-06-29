@@ -1246,6 +1246,7 @@ double approximate_symmetric_Hausdorff_distance(const TriangleMesh& tm1,
  *
  * @pre `tm` is a non-empty triangle mesh and `points` is not empty.
  */
+#pragma managed(push, off)
 template< class TriangleMesh,
           class PointRange,
           class NamedParameters = parameters::Default_named_parameters>
@@ -1282,7 +1283,7 @@ double approximate_max_distance_to_point_set(const TriangleMesh& tm,
 
   return to_double(ref.refine(precision, tree));
 }
-
+#pragma managed(pop)
 ////////////////////////////////////////////////////////////////////////
 
 // Use this def in order to get back the parallel version of the one-sided Hausdorff code!

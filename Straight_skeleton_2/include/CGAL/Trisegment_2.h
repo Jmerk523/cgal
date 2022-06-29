@@ -61,7 +61,7 @@ struct Minmax_traits< Trisegment_collinearity >
 };
 
 }
-
+#pragma managed(push, off)
 template<class K, typename Segment>
 class Trisegment_2
   : public Ref_counted_base
@@ -206,7 +206,7 @@ private :
   // necessarily the middle of the gap between e2 and e0).
   Self_ptr mChildT ;
 } ;
-
+#pragma managed(pop)
 } // end namespace CGAL
 
 #endif // CGAL_SLS_TRISEGMENT_H
